@@ -1,0 +1,31 @@
+ public void LoadData(String ContentType) {
+        try {
+            Functions.UserID = null;
+            rs = DBconn.st.executeQuery("SELECT * FROM adaccounts WHERE username = ? AND password = ?" + Functions.UserDisp + "'");
+            if (rs.next()) {
+                Functions.UserID = rs.getString("admin_id");
+                if (ContentType.equals("MainFrame")) {
+                    userDisplay_lbl.setText(rs.getString("firstname") + " " + rs.getString("lastname"));
+                } else if (ContentType.equals("Settings")) {
+                    settings.FirstName_txtbx.setText(rs.getString("firstname"));
+                    settings.LastName_txtbx.setText(rs.getString("lastname"));
+                    settings.Email_txtbx.setText(rs.getString("email"));
+                }
+                try {
+                    if (!rs.getBytes("image_pic").equals(null)) {
+                        Profile_Pic.setIcon(new ImageIcon(new ImageIcon(rs.getBytes("admin_image")).getImage().getScaledInstance(94, 94, Image.SCALE_DEFAULT)));
+                        settings.Imgbx.setIcon(new ImageIcon(new ImageIcon(rs.getBytes("admin_image")).getImage().getScaledInstance(94, 94, Image.SCALE_DEFAULT)));
+                    } else {
+                        Profile_Pic.setIcon(new ImageIcon(getClass().getResource("/Resources/account-circle (dark).png")));
+                        settings.Imgbx.setIcon(new ImageIcon(getClass().getResource("/Resources/account-circle (dark).png")));
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }

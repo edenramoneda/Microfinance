@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="consolidation" language="groovy" pageWidth="300" pageHeight="500" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4ab9150-ba17-4e16-bcc7-485a39e85aab">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="-21" width="301" height="75" forecolor="#FFFFFF" backcolor="#003366" uuid="ee0d2e0f-3cb5-491e-bca2-ab1db61949d5"/>
+				<image>
+					<reportElement x="19" y="11" width="50" height="50" uuid="ca67713c-fffd-451c-ad84-fe065d1cc3c1"/>
+					<imageExpression><![CDATA["C:\\Users\\Ma. Eden M. Ramoneda\\Desktop\\Untitled-1.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="98" y="11" width="156" height="29" forecolor="#FFFFFF" uuid="fe03ec9b-740f-4154-a9c9-a1a47da5d83c"/>
+					<textElement>
+						<font size="22"/>
+					</textElement>
+					<text><![CDATA[Debt Statement]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="211" y="54" width="90" height="21" forecolor="#FFFFFF" uuid="dca6b5c8-3190-416c-93ea-1f6516670c20"/>
+					<textElement>
+						<font size="15"/>
+					</textElement>
+					<text><![CDATA[Issued Date:]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="64" width="86" height="20" uuid="13eb269c-3f46-409a-b880-df4ac66cca72"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Client Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="91" width="79" height="20" uuid="7c216233-ec21-4348-8cc7-c529547b37c7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Clients Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Transparent" x="100" y="64" width="133" height="20" uuid="3b42a8fa-ea90-4b78-83ec-0d5054177039"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="100" y="91" width="133" height="20" uuid="bb19fc2a-b489-4455-8b82-5324b5287c98"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="260" height="1" uuid="7de3187d-270e-4ce8-ab65-c3f8c9ed69b5"/>
+			</line>
+			<textField>
+				<reportElement mode="Transparent" x="100" y="0" width="133" height="20" uuid="d8e90b2a-4bbe-4f09-892f-7992f34afc7f"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="-34" width="79" height="20" uuid="12aa0978-6245-4790-9a6f-78eb485247cc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Type of Loan:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="0" width="114" height="20" uuid="f7929ecb-31d7-4b34-88a5-e2375e647d84"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Remaining Balance]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Transparent" x="112" y="0" width="121" height="20" uuid="16536cdc-170b-4b4a-9e76-cbb0f233d2b1"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="108" y="21" width="156" height="29" forecolor="#FFFFFF" uuid="eaf8b9d6-92c5-49b4-a83e-f0130db20feb"/>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-2" y="-96" width="262" height="1" uuid="b41c039b-7e0b-4d53-879e-f9df57501835"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

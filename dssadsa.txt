@@ -1,0 +1,29 @@
+ClientInformation.setOpaque(true);
+        ClientInformation.setBackground(new Color(69,144,218));//new Color
+       Notification.setBackground(new Color(51,173,255));//backtonormal
+       ClientInformation.repaint();
+         parentsubmodule.removeAll();
+                                 parentsubmodule.add(ClientInformationPane);
+                                 parentsubmodule.repaint();
+                                 parentsubmodule.revalidate();
+
+        ComMan.setOpaque(true);
+        ComMan.setBackground(new Color(18,156,243));//new oolor
+        ComMan.repaint();
+                SavingsTracking.setBackground(new Color(51,51,51));//normal color
+                        SPM.setBackground(new Color(51,51,51));//normal color
+                                Consolidation.setBackground(new Color(51,51,51));//normal color
+                                //formodulepressed
+                               ComManPanel.setVisible(true);
+                               SavingsTrackingPanel.setVisible(false);
+                                parentsubmoduleST.setVisible(false);
+
+
+   if (username_txtbx.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your username.", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
+        } else if (password_txtbx.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your password.", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
+            password_txtbx.requestFocus();
+        } else {
+            LoginCred();
+        }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="debt_statement" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1e41c43f-3737-4246-95c9-b365c2019dd6">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     *
+FROM
+     "WT_PersonalLoan2" WT_PersonalLoan2]]>
+	</queryString>
+	<field name="Type_Of_Loan" class="java.lang.String"/>
+	<field name="Client_No" class="java.lang.Integer"/>
+	<field name="Clients_Name" class="java.lang.String"/>
+	<field name="No_Of_Payments" class="java.lang.Double"/>
+	<field name="Clients_Payment" class="java.lang.Double"/>
+	<field name="Amounts_Of_Payment" class="java.lang.Double"/>
+	<field name="Payment_Regulation" class="java.lang.String"/>
+	<field name="Remaining_Balance" class="java.lang.Double"/>
+	<field name="Marks" class="java.lang.String"/>
+	<field name="W_Use" class="java.lang.String"/>
+	<field name="Date" class="java.lang.String"/>
+	<field name="Time" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

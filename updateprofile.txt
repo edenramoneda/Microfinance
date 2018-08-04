@@ -1,0 +1,21 @@
+ try {
+            if (Functions.ImgFile != null) {
+                File imgfile = new File(Functions.ImgFile);
+                FileInputStream fin = new FileInputStream(new File(Functions.ImgFile));
+                PreparedStatement pst = DBconn.conn.prepareStatement("UPDATE adaccounts SET image=? WHERE admin_id='" + Functions.UserID + "'");
+                pst.setBinaryStream(1, (InputStream) fin, (int) imgfile.length());
+                pst.executeUpdate();
+            }
+            if (FirstName_txtbx.getText().equals("") || LastName_txtbx.getText().equals("") || Email_txtbx.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Complete all required fields.", "", JOptionPane.ERROR_MESSAGE);
+            } else {
+                DBconn.st.execute("UPDATE adaccounts SET firstname='" + FirstName_txtbx.getText() + "', lastname='" + LastName_txtbx.getText() + "', email='" + Email_txtbx.getText() + "' WHERE admin_id='" + Functions.UserID + "' ");
+                Login.MainFrame.LoadData("MainFrame");
+                JOptionPane.showMessageDialog(null, "Profile details updated successfully.", "", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex, "", JOptionPane.ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+        }      

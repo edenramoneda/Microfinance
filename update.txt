@@ -1,0 +1,93 @@
+if(checkInputFields()&&jTextField1.getText()!=null){
+           String UpdateQuery = null;
+           PreparedStatement ps = null;
+           Connection con = getConnectionDB();
+           
+           //update without iMage
+           if(ImgPath == null){
+               try {
+                   UpdateQuery ="UPDATE ClientInformation SET Lastname=?,Firstname=?,Middlename=?,Gender=?,Occupation=?,Address=?,Mobile=?,Email=?,Status=?,Birthday=? WHERE CID=?";
+                   ps = con.prepareStatement(UpdateQuery);
+        ps.setString(1,jTextField2.getText());//Lastname
+         ps.setString(2,jTextField3.getText());//Firstname
+          ps.setString(3,jTextField4.getText());//Midddlename
+           ps.setString(4,jComboBox1.getSelectedItem().toString()); //Gender
+             ps.setString(5,jTextField5.getText());// Occupation
+                ps.setString(6,jTextField7.getText());// Address
+                   ps.setString(7,jTextField8.getText());//Mobile
+                      ps.setString(8,jTextField9.getText());// Email
+                         ps.setString(9,jTextField10.getText());// Status
+                SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");//Birthday
+                String addDate1 = dateFormat1.format(jDateChooser2.getDate());
+                ps.setString(10,addDate1);
+         ps.setString(11,jTextField1.getText());
+         ps.executeUpdate();
+        ShowDataInClientInformationTable();
+         JOptionPane.showMessageDialog(null,"Data Successfully Updated");
+           
+         jTextField1.setEnabled(false);
+                 jTextField2.setEnabled(false);
+                   jTextField3.setEnabled(false);
+                     jTextField4.setEnabled(false);
+                       jComboBox1.setEnabled(false);
+                        jTextField5.setEnabled(false);
+                         jTextField7.setEnabled(false);
+                          jTextField8.setEnabled(false);
+                           jTextField9.setEnabled(false);
+                            jTextField10.setEnabled(false);
+                            jDateChooser2.setEnabled(false);
+                            Attach_Photo.setEnabled(false);
+                            Save_Button.setEnabled(false);
+                            Update_Button.setEnabled(false);
+                 
+               } catch (SQLException ex) {
+                 Logger.getLogger(ClientInformationClass.class.getName()).log(Level.SEVERE,null,ex);
+               }
+           }
+           //update with image
+           else{
+                 try{
+             InputStream img = new FileInputStream(new File(ImgPath));
+             UpdateQuery ="UPDATE ClientInformation SET Lastname=?,Firstname=?,Middlename=?,Gender=?,Occupation=?,Address=?,Mobile=?,Email=?,Status=?,Birthday=?,Image_CI=? WHERE CID=?";
+              ps = con.prepareStatement(UpdateQuery);
+               ps.setString(1,jTextField2.getText());//Lastname
+         ps.setString(2,jTextField3.getText());//Firstname
+          ps.setString(3,jTextField4.getText());//Midddlename
+           ps.setString(4,jComboBox1.getSelectedItem().toString()); //Gender
+             ps.setString(5,jTextField5.getText());// Occupation
+                ps.setString(6,jTextField7.getText());// Address
+                   ps.setString(7,jTextField8.getText());//Mobile
+                      ps.setString(8,jTextField9.getText());// Email
+                         ps.setString(9,jTextField10.getText());// Status
+                SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");//Birthday
+                String addDate1 = dateFormat1.format(jDateChooser2.getDate());
+                ps.setString(10,addDate1);
+                 ps.setBlob(11,img);// Image
+         ps.setString(12,jTextField1.getText());
+           
+         ps.executeUpdate();
+        ShowDataInClientInformationTable();
+         JOptionPane.showMessageDialog(null,"Data Successfully Updated");
+           
+       jTextField1.setEnabled(false);
+                 jTextField2.setEnabled(false);
+                   jTextField3.setEnabled(false);
+                     jTextField4.setEnabled(false);
+                       jComboBox1.setEnabled(false);
+                        jTextField5.setEnabled(false);
+                         jTextField7.setEnabled(false);
+                          jTextField8.setEnabled(false);
+                           jTextField9.setEnabled(false);
+                            jTextField10.setEnabled(false);
+                            jDateChooser2.setEnabled(false);
+                            Attach_Photo.setEnabled(false);
+                            Save_Button.setEnabled(false);
+                                 Update_Button.setEnabled(false);
+
+               } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+               }    
+           }
+       }else{
+             JOptionPane.showMessageDialog(null,"One or More Fields are Empty or Wrong");
+       }
